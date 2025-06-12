@@ -59,5 +59,3 @@ curl http://localhost:8080/health
 - **Built with**: MLflow `models build-docker`
 
 ## 📊 Model
-
-Model menggunakan **MLPClassifier**
