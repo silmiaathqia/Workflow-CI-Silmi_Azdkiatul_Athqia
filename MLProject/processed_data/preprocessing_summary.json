@@ -1,0 +1,48 @@
+{
+  "original_shape": [
+    1000,
+    17
+  ],
+  "final_shape": [
+    1000,
+    21
+  ],
+  "train_shape": [
+    640,
+    20
+  ],
+  "val_shape": [
+    160,
+    20
+  ],
+  "test_shape": [
+    200,
+    20
+  ],
+  "columns_dropped": [
+    "worker_id",
+    "productivity_score"
+  ],
+  "categorical_features_encoded": [
+    "location_type",
+    "industry_sector"
+  ],
+  "num_features": 20,
+  "num_classes": 3,
+  "label_classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "label_mapping": {
+    "High": 0,
+    "Low": 1,
+    "Medium": 2
+  },
+  "scaling_method": "StandardScaler",
+  "split_ratio": {
+    "train": "64.0%",
+    "validation": "16.0%",
+    "test": "20.0%"
+  }
+}

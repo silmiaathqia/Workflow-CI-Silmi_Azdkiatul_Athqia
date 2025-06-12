@@ -1,0 +1,15 @@
+name: worker_productivity_classification
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      max_iter: { type: int, default: 500 }
+      alpha: { type: float, default: 0.001 }
+      hidden_layer_sizes: { type: str, default: "128,64,32" }
+      learning_rate_init: { type: float, default: 0.001 }
+      batch_size: { type: str, default: "auto" }
+      solver: { type: str, default: "adam" }
+      activation: { type: str, default: "relu" }
+    command: "python modelling.py --max_iter {max_iter} --alpha {alpha} --hidden_layer_sizes {hidden_layer_sizes} --learning_rate_init {learning_rate_init} --batch_size {batch_size} --solver {solver} --activation {activation}"
