@@ -110,8 +110,12 @@ jobs:
           DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           if [ ! -z "$DAGSHUB_TOKEN" ]; then
-            dagshub auth add --token $DAGSHUB_TOKEN
-            echo "✅ DagsHub authentication configured"
+            # Set environment variables untuk DagsHub authentication
+            echo "DAGSHUB_USER_TOKEN=$DAGSHUB_TOKEN" >> $GITHUB_ENV
+            echo "MLFLOW_TRACKING_URI=https://dagshub.com/silmiaathqia/Worker-Productivity-MLflow.mlflow" >> $GITHUB_ENV
+            echo "MLFLOW_TRACKING_USERNAME=silmiaathqia" >> $GITHUB_ENV
+            echo "MLFLOW_TRACKING_PASSWORD=$DAGSHUB_TOKEN" >> $GITHUB_ENV
+            echo "✅ DagsHub authentication configured via environment variables"
           else
             echo "⚠️ DagsHub token not found, using local MLflow"
           fi
@@ -255,7 +259,14 @@ jobs:
           DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           if [ ! -z "$DAGSHUB_TOKEN" ]; then
-            dagshub auth add --token $DAGSHUB_TOKEN
+            # Set environment variables untuk Docker build
+            echo "DAGSHUB_USER_TOKEN=$DAGSHUB_TOKEN" >> $GITHUB_ENV
+            echo "MLFLOW_TRACKING_URI=https://dagshub.com/silmiaathqia/Worker-Productivity-MLflow.mlflow" >> $GITHUB_ENV
+            echo "MLFLOW_TRACKING_USERNAME=silmiaathqia" >> $GITHUB_ENV
+            echo "MLFLOW_TRACKING_PASSWORD=$DAGSHUB_TOKEN" >> $GITHUB_ENV
+            echo "✅ DagsHub authentication configured for Docker build"
+          else
+            echo "⚠️ DagsHub token not found"
           fi
 
       - name: Build Docker Image with MLflow
