@@ -1,7 +1,5 @@
 # Workflow-CI-Silmi_Azdkiatul_Athqia
 
-# Worker Productivity Classification - MLflow CI/CD
-
 Repositori ini mengimplementasikan **Kriteria 3 Level Advance** untuk submission Machine Learning Operations dengan MLflow Project dan GitHub Actions CI/CD.
 
 ## 🗂️ Struktur Repository
